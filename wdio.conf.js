@@ -58,7 +58,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'verbose',
+    logLevel: 'error',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -76,6 +76,7 @@ exports.config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
+    
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -121,7 +122,7 @@ exports.config = {
     reporters: ['spec'],//
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./src/steps/searchSteps.js'],        // <string[]> (file/dir) require files before executing features
+        require: ['./src/steps/searchSteps.js', './src/support/hook.js'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
@@ -145,6 +146,10 @@ exports.config = {
     // it and to build services around it. You can either apply a single function or an array of
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
+    
+
+    
+    
     /**
      * Gets executed once before all workers get launched.
      * @param {Object} config wdio configuration object
@@ -166,7 +171,6 @@ exports.config = {
         global.expect = chai.expect;
         global.assert = chai.assert;
         global.should = chai.should();
-        browser.url('/');
     },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you

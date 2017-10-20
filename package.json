@@ -14,6 +14,10 @@
   "devDependencies": {
     "chai": "~4.1.2",
     "chai-as-promised": "~7.1.1",
+    "cucumber-html-reporter": "^2.0.3",
+    "grunt": "1.0.0",
+    "grunt-webdriver": "^2.0.3",
+    "grunt-webdriverio-runner": "0.0.1",
     "wdio-cucumber-framework": "~1.0.2",
     "wdio-phantomjs-service": "~0.2.2",
     "wdio-selenium-standalone-service": "~0.0.9",
