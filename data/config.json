@@ -1,9 +1,9 @@
 {
 	"test":{
-			"appUrl": "http://daft.ie"
+			"baseUrl": "http://daft.ie"
 		},
 		
 	"dev":{
-			"appUrl": "http://donedeal.ie"
+			"baseUrl": "http://donedeal.ie"
 		}
 }

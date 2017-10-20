@@ -10,15 +10,15 @@ var reporter = require('cucumber-html-reporter');
 
 var {defineSupportCode} = require('cucumber');
 
-// defineSupportCode(function({registerHandler}) {
-// 	  registerHandler('BeforeFeatures', function() {
-// 		  	var configData = require('../../data/config.json');
-// 			console.log("Launching test in environment: ", browser.params.testEnv);
-// 			config = configData[browser.params.testEnv];
-// 			browser.driver.manage().window().maximize();
-// 			browser.get(config.appUrl);
-// 	  });
-// });
+defineSupportCode(function({registerHandler}) {
+	  registerHandler('BeforeFeatures', function() {
+		  	var configData = require('../../data/config.json');
+			console.log("Launching test in environment: ", browser.params.testEnv);
+			config = configData[browser.params.testEnv];
+			browser.driver.manage().window().maximize();
+			browser.get(config.baseUrl);
+	  });
+});
 
 defineSupportCode(function({setDefaultTimeout}) {
 	  setDefaultTimeout(10 * 60 * 1000);
