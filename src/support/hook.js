@@ -13,10 +13,10 @@ var {defineSupportCode} = require('cucumber');
 defineSupportCode(function({registerHandler}) {
 	  registerHandler('BeforeFeatures', function() {
 		  	var configData = require('../../data/config.json');
-			console.log("Launching test in environment: ", browser.params.testEnv);
-			config = configData[browser.params.testEnv];
-			browser.driver.manage().window().maximize();
-			browser.get(config.baseUrl);
+			console.log("Launching test in environment: ", browser.options.args.params.testEnv);
+			config = configData[browser.options.args.params.testEnv];
+			//browser.driver.manage().window().maximize();
+			browser.url(config.baseUrl);
 	  });
 });
 

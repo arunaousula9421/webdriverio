@@ -16,16 +16,17 @@ defineSupportCode(function ({ Given, When, Then }) {
     });
 
     Then('I can select any random City or County', function () {
-        browser.click(search.cityCountyDropDown);
-        browser.count(search.cityCounty).then(function (count) {
-        search.cityCountyCount = count;
-        search.randomCityCountyIndex = 1 + Math.floor(Math.random() * (search.cityCountyCount - 1));
-        }).then(function () {
-        search.cityCounty.get(search.randomCityCountyIndex).getText().then(function (cityCountyLabel) {
-        search.selectCityCountyLabel(cityCountyLabel);
-        cityCountyLabelGlobal = cityCountyLabel;
-         });
-      });
+        console.log('Hello');
+    //     browser.click(search.cityCountyDropDown);
+    //     browser.count(search.cityCounty).then(function (count) {
+    //     search.cityCountyCount = count;
+    //     search.randomCityCountyIndex = 1 + Math.floor(Math.random() * (search.cityCountyCount - 1));
+    //     }).then(function () {
+    //     search.cityCounty.get(search.randomCityCountyIndex).getText().then(function (cityCountyLabel) {
+    //     search.selectCityCountyLabel(cityCountyLabel);
+    //     cityCountyLabelGlobal = cityCountyLabel;
+    //      });
+    //   });
     });
 
     Then('I perform search', function () {
