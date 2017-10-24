@@ -27,7 +27,6 @@ defineSupportCode(function({setDefaultTimeout}) {
 defineSupportCode(function({After, registerListener}) {
 	
 	var writeScreenshotToFile = function(image) {
-		
 		if (!fse.existsSync(screenshotDir)) {
 			fse.mkdirSync(screenshotDir);
 		}
@@ -39,20 +38,12 @@ defineSupportCode(function({After, registerListener}) {
         stream.end();
 	};
 	
-	After(function(scenario, done) {
+	After(function(scenario) {
 		let self = this;
 		if (scenario.isFailed()) {
-			browser.takeScreenshot().then(function(png) {
-		        let decodedImage = new Buffer(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
-		        writeScreenshotToFile(decodedImage);
-		        self.attach(decodedImage, 'image/png');
-				done();
-			}, function(err) {
-				done(err);
-			});
-		} else {
-			done();
-		}
+			var screenShot = browser.saveScreenshot();
+			writeScreenshotToFile(screenShot);
+			} 
 	});
 	
 	var createHtmlReport = function (sourceJson) {

@@ -1,8 +1,8 @@
 //var page = require('../pages/basePage.js');
 var search = require('../pages/searchPage.js');
 var { defineSupportCode } = require('cucumber');
-var cityCountyLabelGlobal;
-var searchResultGlobal;
+//var cityCountyLabelGlobal;
+//var searchResultGlobal;
 
 defineSupportCode(function ({ Given, When, Then }) {
     Given('I launch Daft and select sales category', function () {
