@@ -6,7 +6,7 @@ var { defineSupportCode } = require('cucumber');
 
 defineSupportCode(function ({ Given, When, Then }) {
     Given('I launch Daft and select sales category', function () {
-        browser.waitUntil(search.salesCategory);
+        //browser.waitUntil(search.salesCategory);
         expect(browser.getText(search.salesCategory)).to.equal('For Sale');
         browser.click(search.salesCategory);
     });
