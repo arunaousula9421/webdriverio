@@ -10,7 +10,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './src/features/*.feature'
+        './src/features/login.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -122,7 +122,7 @@ exports.config = {
     reporters: ['spec'],//
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./src/step_definitions/searchSteps.ts', './src/support/hook.js'],        // <string[]> (file/dir) require files before executing features
+        require: ['./src/step_definitions/loginSteps.ts', './src/support/hook.js'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: ["ts:ts-node/register"],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
@@ -135,7 +135,7 @@ exports.config = {
         strict: false,      // <boolean> fail if there are any undefined or pending steps
         tags: [],           // <string[]> (expression) only execute the features or scenarios with tags matching the expression
         timeout: 20000,     // <number> timeout for step definitions
-        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
+        ignoreUndefinedDefinitions: true, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
     
     //
