@@ -9,7 +9,7 @@ defineSupportCode(({Given, When, Then}) => {
     Given(/^I launch Daft and select sales category$/, () => {
         var homePage = new HomePage();
         homePage.navBarComponet()
-        .selectCategory();
+        .clickSalesCategory();
     });
 
     When(/^I navigate to search form page$/, () => {
@@ -18,6 +18,7 @@ defineSupportCode(({Given, When, Then}) => {
 
     Then(/^I can select any random City or County$/, () => {
         searchPage.clickCityCountyField();
+        searchPage.getCityCountyCount();
      });
 
      Then(/^I perform search$/, () => {
