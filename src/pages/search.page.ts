@@ -13,16 +13,19 @@ export class SearchPage {
         expect(this.getSalesHeaderTitle()).to.equal(titleMessage);
     }
 
-    public clickCityCountyField(): void{
+    public clickCityCountyField(): SearchPage{
         this.cityCountyField.click();
+        return new SearchPage;
     }
 
-    public getCityCountyCount(): void{
+    public getCityCountyCount(): SearchPage{
         console.log(this.selectCityCounty.value.length);
+        return new SearchPage;
     }
 
-    // public getRandomCityCounty(): any{
-    //     var randomCityCounty = 1 + Math.floor(Math.random() * (this.getCityCountyCount - 1));
-    //     console.log(randomCityCounty);
-    // } 
+    public getRandomCityCounty(): SearchPage{
+        var randomCityCounty = 1 + Math.floor(Math.random() * (this.getCityCountyCount - 1));
+        console.log(randomCityCounty);
+        return new SearchPage;
+    } 
 }
