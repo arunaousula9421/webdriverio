@@ -1,9 +1,10 @@
 #src/features/login.features
+
 Feature: Login to Daft.ie
   As a Daft User
   I would like to Login to using valid credentials
 
-@login
+@Login
 Scenario Outline: Login Test on Daft
 Given Daft.ie is launched and Login is selected
 When I enter <username> and <password>

@@ -18,7 +18,7 @@ defineSupportCode(({Given, When, Then}) => {
 
     Then(/^I can select any random City or County$/, () => {
         searchPage.clickCityCountyField()
-        .getCityCounty();
+        .clickCityCounty();
      });
 
      Then(/^I perform search$/, () => {

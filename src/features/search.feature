@@ -1,9 +1,9 @@
-#src/features/search.feature
 Feature: Search on Daft.ie
     As a user
     I should be able to search for properties
     So that I can find a new place
 
+@Search
     Scenario: Search Test on Daft
     Given I launch Daft and select sales category
     When I navigate to search form page

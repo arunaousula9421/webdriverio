@@ -3,9 +3,11 @@ var expect = require('chai').expect;
 export class SearchPage { 
     public get salesHeader() { return browser.element('//*[@id="search-title"]') }
     public get cityCountyField() { return browser.element('//*[@id="cc_id"]/dt') }
-    public get selectCityCounty() { return browser.elements('//*[@id="cc_id"]/dd/ul/li') }
-    //public get selectArea() { return browser.element('.//*[@id="cc_id"]/dd/ul/li[id()='" + cityCountyLabel + "']')}
+    public get getCityCountyList() { return browser.elements('//*[@id="cc_id"]/dd/ul/li') }
+    public get selectCityCounty() { return browser.element('//*[@id="cc_id"]/dd/ul/li') }
+    public get searchBtn() { return browser.element('') }
 
+    
     public getSalesHeaderTitle() {
         return this.salesHeader.getText();
     }
@@ -20,7 +22,7 @@ export class SearchPage {
     }
 
     public getCityCountyCount(){
-        var count = this.selectCityCounty.value.length;
+        var count = this.getCityCountyList.value.length;
         console.log(count);
         return count;
     }
@@ -31,10 +33,20 @@ export class SearchPage {
         return randomCityCounty;
     } 
 
-    public getCityCounty() : SearchPage{
+    // public getCityCounty() : SearchPage{
         
-        var city = this.selectCityCounty.selectByIndex(this.getRandomCityCounty()).getText();
-        console.log(city);      
+    //     var city = this.selectCityCounty.selectByIndex(this.getRandomCityCounty()).getText();
+    //     console.log(city);      
+    //     return new SearchPage;
+    //  }
+
+    public clickCityCounty(): SearchPage{
+        browser.element('.//*[@id="cc_id"]/dd/ul/li['+this.getRandomCityCounty()+']').click();
         return new SearchPage;
-     }
+    }
+
+    public getSelectedCityCounty(): SearchPage{
+        this.cityCountyField.getText();
+        return new SearchPage;
+    }
 }
